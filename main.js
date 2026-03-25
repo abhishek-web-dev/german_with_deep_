@@ -246,3 +246,4 @@ window.addEventListener("resize", () => {
 
 /* INIT */
 updateSlider();
+
