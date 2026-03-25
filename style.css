@@ -240,7 +240,7 @@ ul   { list-style:none; }
 .ht-w { color:var(--white); }
 .ht-r { color:var(--red); }
 .ht-y { color:var(--yellow); }
-.ht3 { color:rgba(255,255,255,.55); font-size:60%; font-family:var(--font-serif); font-style:italic; animation:fadeInUp .7s ease .3s both; }
+.ht3 { color:var(--white); font-size:60%; font-family:var(--font-serif); font-style:italic; animation:fadeInUp .7s ease .3s both; }
 
 .hero-sub {
   color:rgba(255,255,255,.6); font-size:1.05rem; max-width:520px;
