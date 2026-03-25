@@ -173,3 +173,76 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   buildDots();
   startAuto();
 })();
+
+const track = document.getElementById("reviewTrack");
+const cards = document.querySelectorAll(".review-card");
+const dotsContainer = document.getElementById("dots");
+
+let index = 0;
+let visible = getVisible();
+const total = cards.length;
+
+/* RESPONSIVE */
+function getVisible() {
+  return window.innerWidth <= 768 ? 1 : 3;
+}
+
+/* UPDATE SLIDER */
+function updateSlider() {
+  visible = getVisible();
+
+  const cardWidth = track.children[0].offsetWidth + 20; // gap included
+  track.style.transform = `translateX(-${index * cardWidth}px)`;
+
+  renderDots();
+}
+
+/* DOTS */
+function renderDots() {
+  dotsContainer.innerHTML = "";
+
+  const totalSlides = total - visible + 1;
+
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement("span");
+
+    if (i === index) dot.classList.add("active");
+
+    dot.addEventListener("click", () => {
+      index = i;
+      updateSlider();
+    });
+
+    dotsContainer.appendChild(dot);
+  }
+}
+
+/* AUTO SLIDE */
+let auto = setInterval(() => {
+  index++;
+  if (index > total - visible) index = 0;
+  updateSlider();
+}, 3000);
+
+/* ARROWS */
+document.querySelector(".arrow.left").onclick = () => {
+  index--;
+  if (index < 0) index = total - visible;
+  updateSlider();
+};
+
+document.querySelector(".arrow.right").onclick = () => {
+  index++;
+  if (index > total - visible) index = 0;
+  updateSlider();
+};
+
+/* RESIZE FIX */
+window.addEventListener("resize", () => {
+  visible = getVisible();
+  if (index > total - visible) index = 0;
+  updateSlider();
+});
+
+/* INIT */
+updateSlider();
