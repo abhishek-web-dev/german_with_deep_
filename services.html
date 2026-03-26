@@ -8,7 +8,525 @@
   <link rel="stylesheet" href="style.css"/>
   <meta name="description" content="German language courses A1 to C1 at German With Deep New Delhi. Goethe exam prep. Online and offline batches. Free demo."/>
   <title>German Courses – German With Deep | A1 to C1 Classes New Delhi</title>
-</head><body>
+  <style>
+    /* ══════════════════════════════════════════════
+   SERVICES PAGE — DETAILED COURSE CARDS
+   ══════════════════════════════════════════════ */
+.services-detail-section {
+  background: var(--warm);
+  padding: 96px 0;
+}
+
+/* .sd-card {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 48px;
+  background: var(--white);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.08);
+  margin-bottom: 40px;
+  border: 2px solid var(--gray2);
+  transition: border-color 0.3s, box-shadow 0.3s;
+} */
+
+.sd-card {
+  background: white;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 32px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+
+/* Padding fix */
+.sd-right {
+  padding: 36px 32px;
+}
+.sd-card:hover {
+  border-color: var(--black);
+  box-shadow: 0 12px 50px rgba(0,0,0,0.13);
+}
+.sd-card:last-child { margin-bottom: 0; }
+
+/* LEFT — image */
+/* .sd-left {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+}
+.sd-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.sd-card:hover .sd-left img {
+  transform: scale(1.04);
+} */
+.sd-price-tag {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: var(--black);
+  color: var(--yellow);
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  font-weight: 900;
+  padding: 10px 22px;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+/* RIGHT — content */
+.sd-right {
+  padding: 36px 40px 36px 0;
+  display: flex;
+  flex-direction: column;
+}
+.sd-top-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.sd-badge {
+  font-size: .65rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 50px;
+}
+.sd-badge.featured { background: var(--yellow); color: var(--black); }
+.sd-badge.popular  { background: var(--red);    color: var(--white); }
+
+.sd-level {
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gray);
+  background: var(--warm);
+  padding: 4px 14px;
+  border-radius: 50px;
+  border: 1.5px solid var(--gray2);
+}
+.sd-level.red { color: var(--red); border-color: rgba(204,0,0,0.2); background: rgba(204,0,0,0.05); }
+
+.sd-title {
+  font-family: var(--font-head);
+  font-size: 1.7rem;
+  font-weight: 900;
+  color: var(--black);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.sd-title span { color: var(--red); }
+
+.sd-desc {
+  font-size: .92rem;
+  color: var(--text2);
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+
+/* Topics grid */
+.sd-topics { margin-bottom: 22px; }
+.sd-topic-title {
+  font-weight: 800;
+  font-size: .82rem;
+  color: var(--black);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.sd-topics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px 20px;
+}
+.sd-topics-grid span {
+  font-size: .82rem;
+  color: var(--text2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Highlight box */
+.sd-highlight-box {
+  background: rgba(245,194,0,0.08);
+  border-left: 4px solid var(--yellow);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+  font-size: .85rem;
+  color: var(--text2);
+  line-height: 1.6;
+  margin-bottom: 22px;
+}
+
+/* Meta row */
+.sd-meta-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  padding: 18px 0;
+  border-top: 1px solid var(--gray2);
+  border-bottom: 1px solid var(--gray2);
+}
+.sd-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sd-meta-icon { font-size: 1.3rem; }
+.sd-meta-item div {
+  display: flex;
+  flex-direction: column;
+}
+.sd-meta-item strong {
+  font-size: .85rem;
+  font-weight: 800;
+  color: var(--black);
+  line-height: 1;
+}
+.sd-meta-item small {
+  font-size: .7rem;
+  color: var(--gray);
+  margin-top: 2px;
+}
+
+/* Action buttons */
+.sd-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .sd-card { grid-template-columns: 300px 1fr; gap: 32px; }
+  .sd-right { padding: 28px 28px 28px 0; }
+}
+@media (max-width: 768px) {
+  .sd-card { grid-template-columns: 1fr; }
+  .sd-left { min-height: 260px; }
+  .sd-right { padding: 24px; }
+  .sd-title { font-size: 1.4rem; }
+  .sd-topics-grid { grid-template-columns: 1fr; }
+  .sd-meta-row { gap: 14px; }
+}
+@media (max-width: 480px) {
+  .sd-actions { flex-direction: column; }
+  .sd-actions .btn { width: 100%; justify-content: center; }
+}
+
+/* ══════════════════════════════════════════════
+   COMBO — DETAILED CARDS (Services page)
+   ══════════════════════════════════════════════ */
+.combo-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.combo-detail-card {
+  background: var(--black2);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 20px;
+  padding: 32px 30px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+.combo-detail-card:hover {
+  border-color: rgba(245,194,0,.35);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 50px rgba(0,0,0,.4);
+}
+.combo-detail-card.popular {
+  border-color: rgba(204,0,0,.3);
+}
+.combo-detail-card.ultimate {
+  border-color: rgba(245,194,0,.2);
+  background: linear-gradient(135deg, #1a1400 0%, var(--black2) 100%);
+}
+
+.cdc-top { display: flex; flex-direction: column; gap: 12px; }
+
+.cdc-title {
+  font-family: var(--font-head);
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.3;
+  margin-top: 8px;
+}
+.cdc-title .ct-highlight { color: var(--yellow); }
+
+.cdc-desc {
+  font-size: .88rem;
+  color: rgba(255,255,255,.55);
+  line-height: 1.7;
+}
+
+/* Includes list */
+.cdc-includes { display: flex; flex-direction: column; gap: 10px; }
+.cdc-inc-title {
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 4px;
+}
+.cdc-includes ul {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding-left: 4px;
+}
+.cdc-includes ul li {
+  font-size: .84rem;
+  color: rgba(255,255,255,.6);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.5;
+}
+.cdc-includes ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--yellow);
+  font-weight: 900;
+  font-size: .8rem;
+}
+
+/* Meta row */
+.cdc-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 0;
+  border-top: 1px solid rgba(255,255,255,.07);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+}
+.cdc-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+}
+.cdc-meta-item div { display: flex; flex-direction: column; }
+.cdc-meta-item strong { font-size: .82rem; font-weight: 800; color: var(--white); line-height: 1; }
+.cdc-meta-item small  { font-size: .68rem; color: rgba(255,255,255,.35); margin-top: 2px; }
+
+/* Price row */
+.cdc-price-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.cdc-price {
+  font-family: var(--font-head);
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--yellow);
+  line-height: 1;
+}
+.cdc-saving {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.cdc-saving span {
+  font-size: .75rem;
+  color: rgba(255,255,255,.35);
+}
+.saving-pill {
+  background: rgba(245,194,0,.15);
+  color: var(--yellow) !important;
+  font-size: .7rem !important;
+  font-weight: 800;
+  padding: 2px 10px;
+  border-radius: 50px;
+  display: inline-block;
+  width: fit-content;
+}
+
+/* ══════════════════════════════════════════════
+   SCHOOL — DETAILED CARDS (Services page)
+   ══════════════════════════════════════════════ */
+.school-why-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 50px;
+}
+.school-why-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--white);
+  border-radius: 14px;
+  padding: 20px 18px;
+  border: 2px solid var(--gray2);
+}
+.swy-icon { font-size: 1.5rem; flex-shrink: 0; }
+.swy-text { display: flex; flex-direction: column; gap: 4px; }
+.swy-text strong { font-size: .88rem; font-weight: 800; color: var(--black); }
+.swy-text span   { font-size: .78rem; color: var(--text2); line-height: 1.5; }
+
+.school-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.school-detail-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 28px 22px;
+  border: 2px solid var(--gray2);
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: hidden;
+}
+.school-detail-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--black), var(--red));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.school-detail-card:hover {
+  border-color: var(--black);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.13);
+}
+.school-detail-card:hover::before { transform: scaleX(1); }
+.school-detail-card.highlighted {
+  border-color: var(--black);
+  border-width: 2.5px;
+}
+.school-detail-card.highlighted::before { transform: scaleX(1); }
+
+.sdc-badge {
+  display: inline-block;
+  background: var(--black);
+  color: var(--yellow);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 50px;
+  width: fit-content;
+}
+.sdc-class {
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--black);
+  line-height: 1.2;
+}
+.sdc-rate {
+  font-family: var(--font-head);
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--red);
+  line-height: 1;
+}
+.sdc-rate span { font-size: .9rem; font-weight: 600; color: var(--gray); }
+
+.sdc-strength {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .78rem;
+  color: var(--gray);
+}
+.sdc-strength svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+.sdc-divider {
+  height: 1px;
+  background: var(--gray2);
+  margin: 2px 0;
+}
+
+.sdc-about { display: flex; flex-direction: column; gap: 10px; }
+.sdc-about-title {
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--black);
+}
+.sdc-about ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 4px;
+}
+.sdc-about ul li {
+  font-size: .8rem;
+  color: var(--text2);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.5;
+}
+.sdc-about ul li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--red);
+  font-weight: 900;
+  font-size: .78rem;
+}
+.sdc-note {
+  font-size: .78rem;
+  color: var(--gray);
+  background: var(--warm);
+  padding: 10px 14px;
+  border-radius: 8px;
+  border-left: 3px solid var(--yellow);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .combo-detail-grid { grid-template-columns: 1fr; }
+  .school-detail-grid { grid-template-columns: repeat(2, 1fr); }
+  .school-why-row { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .school-detail-grid { grid-template-columns: 1fr; }
+  .school-why-row { grid-template-columns: 1fr; }
+}
+  </style>
+</head>
+<body>
 <header class="navbar" id="navbar">
   <div class="nav-inner container">
     <a href="index.html" class="nav-logo">
@@ -35,7 +553,786 @@
   </div>
 </section>
 
-<section  id="courses" class="about-wrap section">
+<!-- ░░░ SERVICES PAGE — DETAILED COURSE CARDS ░░░ -->
+<section id="courses" class="services-detail-section">
+  <div class="container">
+
+    <div class="section-header center" style="margin-bottom:60px">
+      <div class="eyebrow" style="justify-content:center">Our Courses</div>
+      <h2 class="section-title">All <span class="r">German</span> <span class="y">Courses</span> — Explained</h2>
+      <p class="section-lead" style="margin:0 auto;text-align:center">Everything you need to know before enrolling — levels, content, duration, batch size and pricing.</p>
+    </div>
+
+    <!-- ── A1 ── -->
+     <div class="sd-grid">
+    <div class="sd-card reveal">
+      <!-- <div class="sd-left">
+        <img src="images/Banners/A1_banner.jpeg" alt="A1 Beginner German Course" loading="lazy"/>
+        <div class="sd-price-tag">₹15,999</div>
+      </div> -->
+      <div class="sd-right">
+        <div class="sd-top-row">
+          <span class="sd-badge featured">Featured</span>
+          <span class="sd-level">CEFR A1</span>
+        </div>
+        <h3 class="sd-title">A1 — <span>Foundation German</span></h3>
+        <p class="sd-desc">The perfect starting point for anyone who has never learned German before. You will learn to introduce yourself, greet people, count numbers, name colours, describe your family, and handle basic everyday situations. Classes are engaging, structured, and beginner-friendly.</p>
+
+        <div class="sd-topics">
+          <div class="sd-topic-title">📚 What You'll Learn</div>
+          <div class="sd-topics-grid">
+            <span>✓ Greetings &amp; Introductions</span>
+            <span>✓ Numbers 1–1000</span>
+            <span>✓ Days, Months &amp; Time</span>
+            <span>✓ Family &amp; Personal Info</span>
+            <span>✓ Basic Sentence Structure</span>
+            <span>✓ Articles: Der, Die, Das</span>
+            <span>✓ Present Tense Verbs</span>
+            <span>✓ Basic Vocabulary (500+ words)</span>
+          </div>
+        </div>
+
+        <div class="sd-meta-row">
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">⏱️</span>
+            <div><strong>80 Hours</strong><small>Live Sessions</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">👥</span>
+            <div><strong>Max 3 Students</strong><small>Personal Attention</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">🎯</span>
+            <div><strong>Beginner</strong><small>No prior knowledge needed</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">💻</span>
+            <div><strong>Online</strong><small>Live Classes</small></div>
+          </div>
+        </div>
+
+        <div class="sd-actions">
+          <a href="contact.html" class="btn btn-black">Book Now →</a>
+          <a href="contact.html" class="btn btn-outline">Free Demo First</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── A2 ── -->
+    <div class="sd-card reveal">
+      <!-- <div class="sd-left">
+        <img src="images/Banners/A2_banner.jpeg" alt="A2 Elementary German Course" loading="lazy"/>
+        <div class="sd-price-tag">₹17,999</div>
+      </div> -->
+      <div class="sd-right">
+        <div class="sd-top-row">
+          <span class="sd-level">CEFR A2</span>
+        </div>
+        <h3 class="sd-title">A2 — <span>Elementary German</span></h3>
+        <p class="sd-desc">Build on your A1 foundation. At A2 level you will handle everyday conversations, travel situations, shopping, talking about past experiences and expressing opinions on familiar topics. This level prepares you for practical real-world German use.</p>
+
+        <div class="sd-topics">
+          <div class="sd-topic-title">📚 What You'll Learn</div>
+          <div class="sd-topics-grid">
+            <span>✓ Past Tense (Perfekt)</span>
+            <span>✓ Travel &amp; Transport Vocabulary</span>
+            <span>✓ Shopping &amp; Food</span>
+            <span>✓ Describing Experiences</span>
+            <span>✓ Modal Verbs</span>
+            <span>✓ Dative &amp; Accusative Cases</span>
+            <span>✓ Asking for Directions</span>
+            <span>✓ 1000+ vocabulary words</span>
+          </div>
+        </div>
+
+        <div class="sd-meta-row">
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">⏱️</span>
+            <div><strong>80 Hours</strong><small>Live Sessions</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">👥</span>
+            <div><strong>Max 3 Students</strong><small>Personal Attention</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">🎯</span>
+            <div><strong>Elementary</strong><small>A1 required</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">💻</span>
+            <div><strong>Online</strong><small>Live Classes</small></div>
+          </div>
+        </div>
+
+        <div class="sd-actions">
+          <a href="contact.html" class="btn btn-black">Book Now →</a>
+          <a href="contact.html" class="btn btn-outline">Free Demo First</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── B1 ── -->
+    <div class="sd-card reveal">
+      <!-- <div class="sd-left">
+        <img src="images/Banners/B1_banner.jpeg" alt="B1 Intermediate German Course" loading="lazy"/>
+        <div class="sd-price-tag">₹22,999</div>
+      </div> -->
+      <div class="sd-right">
+        <div class="sd-top-row">
+          <span class="sd-badge popular">Most Popular</span>
+          <span class="sd-level red">CEFR B1</span>
+        </div>
+        <h3 class="sd-title">B1 — <span>Intermediate German</span></h3>
+        <p class="sd-desc">The most popular level — and the one required for most Germany visa applications. B1 gives you independent language use. You can handle most situations you encounter while travelling in German-speaking countries and describe experiences, events, and ambitions. Full Goethe B1 exam preparation included.</p>
+
+        <div class="sd-topics">
+          <div class="sd-topic-title">📚 What You'll Learn</div>
+          <div class="sd-topics-grid">
+            <span>✓ Goethe B1 Exam Format</span>
+            <span>✓ Listening &amp; Speaking Tests</span>
+            <span>✓ Reading Comprehension</span>
+            <span>✓ Letter &amp; Email Writing</span>
+            <span>✓ Subordinate Clauses</span>
+            <span>✓ Passive Voice</span>
+            <span>✓ Konjunktiv II</span>
+            <span>✓ 2000+ vocabulary words</span>
+          </div>
+        </div>
+
+        <div class="sd-highlight-box">
+          🏆 This level is required for Germany/Austria/Swiss visa and many job applications. Deep sir provides complete exam strategy and mock tests.
+        </div>
+
+        <div class="sd-meta-row">
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">⏱️</span>
+            <div><strong>80 Hours</strong><small>Live Sessions</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">👥</span>
+            <div><strong>Max 3 Students</strong><small>Personal Attention</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">🎯</span>
+            <div><strong>Intermediate</strong><small>A2 required</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">📝</span>
+            <div><strong>Goethe Prep</strong><small>Exam included</small></div>
+          </div>
+        </div>
+
+        <div class="sd-actions">
+          <a href="contact.html" class="btn btn-red">Book Now →</a>
+          <a href="contact.html" class="btn btn-outline">Free Demo First</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── B2 ── -->
+    <div class="sd-card reveal">
+      <!-- <div class="sd-left">
+        <img src="images/Banners/B2_banner.jpeg" alt="B2 Upper Intermediate German Course" loading="lazy"/>
+        <div class="sd-price-tag">₹31,999</div>
+      </div> -->
+      <div class="sd-right">
+        <div class="sd-top-row">
+          <span class="sd-level red">CEFR B2</span>
+        </div>
+        <h3 class="sd-title">B2.1 + B2.2 — <span>Upper Intermediate</span></h3>
+        <p class="sd-desc">B2 is the minimum level required for most German universities and professional jobs in Germany. You will understand complex texts, interact fluently with native speakers, and produce clear and detailed text on a wide range of subjects. This is a combined B2.1 + B2.2 course covering the complete level.</p>
+
+        <div class="sd-topics">
+          <div class="sd-topic-title">📚 What You'll Learn</div>
+          <div class="sd-topics-grid">
+            <span>✓ Academic &amp; Professional German</span>
+            <span>✓ Goethe B2 Exam Preparation</span>
+            <span>✓ Complex Grammar Structures</span>
+            <span>✓ Argumentation &amp; Debate</span>
+            <span>✓ University Application Language</span>
+            <span>✓ Advanced Writing Skills</span>
+            <span>✓ Extended Reading Comprehension</span>
+            <span>✓ 3500+ vocabulary words</span>
+          </div>
+        </div>
+
+        <div class="sd-highlight-box">
+          🎓 B2 is mandatory for admission to most German, Austrian and Swiss universities. This course is ideal for students applying for higher education abroad.
+        </div>
+
+        <div class="sd-meta-row">
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">⏱️</span>
+            <div><strong>160 Hours</strong><small>Live Sessions</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">👥</span>
+            <div><strong>Max 3 Students</strong><small>Personal Attention</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">🎯</span>
+            <div><strong>Upper Intermediate</strong><small>B1 required</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">🏛️</span>
+            <div><strong>University Ready</strong><small>Admission prep</small></div>
+          </div>
+        </div>
+
+        <div class="sd-actions">
+          <a href="contact.html" class="btn btn-black">Book Now →</a>
+          <a href="contact.html" class="btn btn-outline">Free Demo First</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── C1 ── -->
+    <div class="sd-card reveal">
+      <!-- <div class="sd-left">
+        <img src="images/Banners/C1.jpeg" alt="C1 Advanced German Course" loading="lazy"/>
+        <div class="sd-price-tag">₹39,999</div>
+      </div> -->
+      <div class="sd-right">
+        <div class="sd-top-row">
+          <span class="sd-level">CEFR C1</span>
+        </div>
+        <h3 class="sd-title">C1 — <span>Advanced Fluency</span></h3>
+        <p class="sd-desc">Near-native fluency. C1 opens the door to top German universities (TU Munich, Heidelberg, LMU), professional corporate careers in Germany, and advanced academic research. You will produce flexible, well-structured text on complex subjects and use language fluently and spontaneously.</p>
+
+        <div class="sd-topics">
+          <div class="sd-topic-title">📚 What You'll Learn</div>
+          <div class="sd-topics-grid">
+            <span>✓ TestDaF / DSH Preparation</span>
+            <span>✓ Academic Essay Writing</span>
+            <span>✓ Corporate German Communication</span>
+            <span>✓ Advanced Grammar Mastery</span>
+            <span>✓ German Media &amp; Culture</span>
+            <span>✓ Nuanced Vocabulary (5000+)</span>
+            <span>✓ Idiomatic Expressions</span>
+            <span>✓ Research Paper Language</span>
+          </div>
+        </div>
+
+        <div class="sd-meta-row">
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">⏱️</span>
+            <div><strong>160 Hours</strong><small>Live Sessions</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">👥</span>
+            <div><strong>Max 2 Students</strong><small>Highly personalised</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">🎯</span>
+            <div><strong>Advanced</strong><small>B2 required</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">🏅</span>
+            <div><strong>Near-Native</strong><small>Professional level</small></div>
+          </div>
+        </div>
+
+        <div class="sd-actions">
+          <a href="contact.html" class="btn btn-black">Book Now →</a>
+          <a href="contact.html" class="btn btn-outline">Free Demo First</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── KIDS ── -->
+    <div class="sd-card reveal">
+      <!-- <div class="sd-left">
+        <img src="images/Banners/kids.jpeg" alt="Kids German Course" loading="lazy"/>
+        <div class="sd-price-tag" style="background:var(--yellow);color:var(--black)">Contact Us</div>
+      </div> -->
+      <div class="sd-right">
+        <div class="sd-top-row">
+          <span class="sd-badge featured" style="background:var(--yellow);color:var(--black)">Special Batch</span>
+          <span class="sd-level">Kids</span>
+        </div>
+        <h3 class="sd-title">Kids — <span>Special German Batch</span></h3>
+        <p class="sd-desc">Designed specifically for children aged 6–14 years. The classes use games, songs, animated stories, and interactive activities to make German learning fun, natural, and effective. Children absorb languages faster — and our kid-friendly approach maximises that advantage.</p>
+
+        <div class="sd-topics">
+          <div class="sd-topic-title">📚 What Kids Will Learn</div>
+          <div class="sd-topics-grid">
+            <span>✓ German through Songs &amp; Games</span>
+            <span>✓ Basic Conversation</span>
+            <span>✓ Colours, Animals, Food</span>
+            <span>✓ Numbers &amp; Alphabet</span>
+            <span>✓ Simple Reading &amp; Writing</span>
+            <span>✓ Fun Cultural Activities</span>
+            <span>✓ Cartoon &amp; Story Based Learning</span>
+            <span>✓ School Curriculum Support</span>
+          </div>
+        </div>
+
+        <div class="sd-highlight-box" style="border-color:var(--yellow)">
+          👦 Perfect for school students who have German as a second language subject, or parents who want to give their child a head-start in European languages.
+        </div>
+
+        <div class="sd-meta-row">
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">👶</span>
+            <div><strong>Age 6–14</strong><small>Young learners</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">👥</span>
+            <div><strong>Small Batches</strong><small>Max 3 kids</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">🎮</span>
+            <div><strong>Activity Based</strong><small>Fun learning</small></div>
+          </div>
+          <div class="sd-meta-item">
+            <span class="sd-meta-icon">💻</span>
+            <div><strong>Online</strong><small>Live Classes</small></div>
+          </div>
+        </div>
+
+        <div class="sd-actions">
+          <a href="contact.html" class="btn btn-yellow" style="color:var(--black)">Enquire Now →</a>
+          <a href="contact.html" class="btn btn-outline">Free Demo First</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+  </div>
+</section>
+
+<!-- ░░░ COMBO COURSES — DETAILED ░░░ -->
+<section class="combo-section">
+  <div class="container">
+
+    <div class="section-header center reveal" style="margin-bottom:60px">
+      <div class="eyebrow" style="justify-content:center;color:var(--yellow)">
+        <span style="background:var(--yellow)"></span>Save More<span style="background:var(--yellow)"></span>
+      </div>
+      <h2 class="section-title light">Combo <span style="color:var(--yellow)">Courses</span></h2>
+      <p class="section-lead" style="color:rgba(255,255,255,.55);margin:0 auto;text-align:center">
+        Bundle multiple levels together and save significantly. The smartest way to learn German — continuous momentum, better retention, and real savings.
+      </p>
+    </div>
+
+    <div class="combo-detail-grid">
+
+      <!-- A1 + A2 -->
+      <div class="combo-detail-card reveal">
+        <div class="cdc-top">
+          <span class="combo-badge">Best Value</span>
+          <div class="cdc-title"><span class="ct-highlight">A1 + A2</span> Combo</div>
+          <p class="cdc-desc">The ideal starter pack. Covers everything from zero German to confident everyday communication. You'll be able to handle travel, shopping, basic work conversations, and describe your life and experiences — all in one continuous course without any gap between levels.</p>
+        </div>
+        <div class="cdc-includes">
+          <div class="cdc-inc-title">✦ What's Included</div>
+          <ul>
+            <li>Complete A1 course (Greetings, basics, present tense, Der/Die/Das)</li>
+            <li>Complete A2 course (Past tense, travel, daily life, dative/accusative)</li>
+            <li>Vocabulary: 1000+ words across both levels</li>
+            <li>Regular assignments &amp; progress tracking</li>
+            <li>Mock tests for both A1 and A2 levels</li>
+          </ul>
+        </div>
+        <div class="cdc-meta">
+          <div class="cdc-meta-item">
+            <span>⏱️</span><div><strong>160 Hours</strong><small>Total live sessions</small></div>
+          </div>
+          <div class="cdc-meta-item">
+            <span>👥</span><div><strong>Max 3 Students</strong><small>Personal attention</small></div>
+          </div>
+          <div class="cdc-meta-item">
+            <span>💰</span><div><strong>Save ₹4,000</strong><small>vs buying separately</small></div>
+          </div>
+        </div>
+        <div class="cdc-price-row">
+          <div class="cdc-price">₹30,000</div>
+          <div class="cdc-saving">
+            <span>Instead of ₹34,000</span>
+            <span class="saving-pill">Save ₹4,000</span>
+          </div>
+        </div>
+        <a href="contact.html" class="combo-btn" style="display:flex;align-items:center;justify-content:center;gap:8px">
+          Book Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- A1 + A2 + B1 -->
+      <div class="combo-detail-card popular reveal">
+        <div class="cdc-top">
+          <span class="combo-badge" style="background:var(--red);color:#fff">Most Popular</span>
+          <div class="cdc-title"><span class="ct-highlight">A1 + A2 + B1</span> Combo</div>
+          <p class="cdc-desc">The most chosen combo — takes you from absolute beginner all the way to the B1 level required for Germany visa applications and job opportunities. Three levels in one uninterrupted journey. No restart, no wasted time, maximum progress.</p>
+        </div>
+        <div class="cdc-includes">
+          <div class="cdc-inc-title">✦ What's Included</div>
+          <ul>
+            <li>Complete A1 + A2 + B1 courses back to back</li>
+            <li>Full Goethe B1 exam preparation with mock tests</li>
+            <li>Vocabulary: 2000+ words across all three levels</li>
+            <li>Germany / Austria / Switzerland visa language guidance</li>
+            <li>Speaking, listening, reading &amp; writing practice</li>
+            <li>Regular assessments &amp; personalised feedback</li>
+          </ul>
+        </div>
+        <div class="cdc-meta">
+          <div class="cdc-meta-item">
+            <span>⏱️</span><div><strong>240 Hours</strong><small>Total live sessions</small></div>
+          </div>
+          <div class="cdc-meta-item">
+            <span>👥</span><div><strong>Max 3 Students</strong><small>Personal attention</small></div>
+          </div>
+          <div class="cdc-meta-item">
+            <span>💰</span><div><strong>Save ₹7,000</strong><small>vs buying separately</small></div>
+          </div>
+        </div>
+        <div class="cdc-price-row">
+          <div class="cdc-price">₹50,000</div>
+          <div class="cdc-saving">
+            <span>Instead of ₹57,000</span>
+            <span class="saving-pill">Save ₹7,000</span>
+          </div>
+        </div>
+        <a href="contact.html" class="combo-btn" style="display:flex;align-items:center;justify-content:center;gap:8px;background:var(--yellow);border-color:var(--yellow);color:var(--black)">
+          Book Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- B1 + B2 -->
+      <div class="combo-detail-card reveal">
+        <div class="cdc-top">
+          <span class="combo-badge" style="background:rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.15)">Intermediate Pack</span>
+          <div class="cdc-title"><span class="ct-highlight">B1 + B2</span> Combo</div>
+          <p class="cdc-desc">Perfect for students who have already completed A1/A2 and want to go further. This combo takes you from independent communication all the way to university-admission level German. Includes Goethe B1 and B2 exam preparation across 240 hours.</p>
+        </div>
+        <div class="cdc-includes">
+          <div class="cdc-inc-title">✦ What's Included</div>
+          <ul>
+            <li>Complete B1 course with Goethe B1 exam prep</li>
+            <li>Complete B2.1 + B2.2 course with Goethe B2 exam prep</li>
+            <li>University application language &amp; writing skills</li>
+            <li>Advanced grammar: subordinate clauses, passive, Konjunktiv</li>
+            <li>3500+ vocabulary words across both levels</li>
+            <li>Speaking fluency &amp; spontaneous conversation practice</li>
+          </ul>
+        </div>
+        <div class="cdc-meta">
+          <div class="cdc-meta-item">
+            <span>⏱️</span><div><strong>240 Hours</strong><small>Total live sessions</small></div>
+          </div>
+          <div class="cdc-meta-item">
+            <span>👥</span><div><strong>Max 3 Students</strong><small>Personal attention</small></div>
+          </div>
+          <div class="cdc-meta-item">
+            <span>💰</span><div><strong>Save ₹5,000</strong><small>vs buying separately</small></div>
+          </div>
+        </div>
+        <div class="cdc-price-row">
+          <div class="cdc-price">₹50,000</div>
+          <div class="cdc-saving">
+            <span>Instead of ₹55,000</span>
+            <span class="saving-pill">Save ₹5,000</span>
+          </div>
+        </div>
+        <a href="contact.html" class="combo-btn" style="display:flex;align-items:center;justify-content:center;gap:8px">
+          Book Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- A1+A2+B1+B2 Full -->
+      <div class="combo-detail-card ultimate reveal">
+        <div class="cdc-top">
+          <span class="combo-badge" style="background:linear-gradient(135deg,var(--red),var(--yellow));color:var(--black)">🏆 Ultimate Pack</span>
+          <div class="cdc-title"><span class="ct-highlight">A1 + A2 + B1 + B2</span> Full Combo</div>
+          <p class="cdc-desc">The complete German language journey — from zero to university-admission level in one comprehensive package. This is the best investment for anyone serious about studying or working in Germany, Austria, or Switzerland. Maximum savings, maximum continuity.</p>
+        </div>
+        <div class="cdc-includes">
+          <div class="cdc-inc-title">✦ What's Included</div>
+          <ul>
+            <li>Full A1, A2, B1, and B2.1+B2.2 courses — all 4 levels</li>
+            <li>Goethe B1 &amp; B2 exam preparation with mock tests</li>
+            <li>Germany / Austria / Swiss university language readiness</li>
+            <li>Complete grammar from basics to advanced structures</li>
+            <li>3500+ vocabulary words — full CEFR progression</li>
+            <li>Priority batch access &amp; flexible scheduling</li>
+            <li>Regular mock exams &amp; detailed performance reports</li>
+          </ul>
+        </div>
+        <div class="cdc-meta">
+          <div class="cdc-meta-item">
+            <span>⏱️</span><div><strong>400 Hours</strong><small>Total live sessions</small></div>
+          </div>
+          <div class="cdc-meta-item">
+            <span>👥</span><div><strong>Max 3 Students</strong><small>Personal attention</small></div>
+          </div>
+          <div class="cdc-meta-item">
+            <span>💰</span><div><strong>Save ₹9,000</strong><small>vs buying separately</small></div>
+          </div>
+        </div>
+        <div class="cdc-price-row">
+          <div class="cdc-price" style="color:var(--yellow)">₹80,000</div>
+          <div class="cdc-saving">
+            <span style="color:rgba(255,255,255,0.4)">Instead of ₹89,000</span>
+            <span class="saving-pill">Save ₹9,000</span>
+          </div>
+        </div>
+        <a href="contact.html" class="combo-btn" style="display:flex;align-items:center;justify-content:center;gap:8px;background:var(--yellow);border-color:var(--yellow);color:var(--black)">
+          Book Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Exam Preparation -->
+      <div class="combo-detail-card special-card reveal">
+        <div class="cdc-top">
+          <span class="combo-badge" style="background:var(--red);color:#fff">Add-on</span>
+          <div class="cdc-title"><span class="ct-highlight">Exam</span> Preparation</div>
+          <p class="cdc-desc">A focused, intensive exam preparation module designed for students who are ready to sit the Goethe Institut exam (A1 to C1) or TestDaF/DSH. Covers exam strategy, time management, past paper practice, and all four skill areas: reading, listening, writing, and speaking.</p>
+        </div>
+        <div class="cdc-includes">
+          <div class="cdc-inc-title">✦ What's Included</div>
+          <ul>
+            <li>Full mock exam sessions (all 4 skills)</li>
+            <li>Goethe, TestDaF or DSH — your choice</li>
+            <li>Exam strategy &amp; time management coaching</li>
+            <li>Past paper analysis &amp; common error correction</li>
+            <li>Speaking test simulation with feedback</li>
+          </ul>
+        </div>
+        <div class="cdc-meta">
+          <div class="cdc-meta-item">
+            <span>⏱️</span><div><strong>20 Hours</strong><small>Intensive sessions</small></div>
+          </div>
+          <div class="cdc-meta-item">
+            <span>👥</span><div><strong>Max 5 Students</strong><small>Group practice</small></div>
+          </div>
+          <div class="cdc-meta-item">
+            <span>📝</span><div><strong>Any Level</strong><small>A1 to C1</small></div>
+          </div>
+        </div>
+        <div class="cdc-price-row">
+          <div class="cdc-price" style="color:#ff8080">₹10,000</div>
+          <div class="cdc-saving">
+            <span style="color:rgba(255,255,255,0.4)">Goethe / TestDaF / DSH focused</span>
+          </div>
+        </div>
+        <a href="contact.html" class="combo-btn" style="display:flex;align-items:center;justify-content:center;gap:8px">
+          Book Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Interview Preparation -->
+      <div class="combo-detail-card special-card reveal">
+        <div class="cdc-top">
+          <span class="combo-badge" style="background:var(--red);color:#fff">Add-on</span>
+          <div class="cdc-title"><span class="ct-highlight">Interview</span> Preparation</div>
+          <p class="cdc-desc">Targeted preparation for German job interviews, visa interviews, or university admission interviews. You'll practise real interview questions in German, learn professional vocabulary, build confidence in spontaneous speaking, and get personalised feedback on every session.</p>
+        </div>
+        <div class="cdc-includes">
+          <div class="cdc-inc-title">✦ What's Included</div>
+          <ul>
+            <li>10 x 1-on-1 focused sessions</li>
+            <li>Job interview German vocabulary &amp; phrases</li>
+            <li>Visa interview simulation &amp; coaching</li>
+            <li>University admission interview preparation</li>
+            <li>Confidence building &amp; pronunciation polish</li>
+          </ul>
+        </div>
+        <div class="cdc-meta">
+          <div class="cdc-meta-item">
+            <span>🗓️</span><div><strong>10 Sessions</strong><small>Personalised</small></div>
+          </div>
+          <div class="cdc-meta-item">
+            <span>👥</span><div><strong>Max 2 Students</strong><small>1-on-1 coaching</small></div>
+          </div>
+          <div class="cdc-meta-item">
+            <span>🎯</span><div><strong>Job / Visa / Uni</strong><small>Your goal</small></div>
+          </div>
+        </div>
+        <div class="cdc-price-row">
+          <div class="cdc-price" style="color:#ff8080">₹5,000</div>
+          <div class="cdc-saving">
+            <span style="color:rgba(255,255,255,0.4)">Job / Visa / University interview prep</span>
+          </div>
+        </div>
+        <a href="contact.html" class="combo-btn" style="display:flex;align-items:center;justify-content:center;gap:8px">
+          Book Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ░░░ SCHOOL STUDENTS — DETAILED ░░░ -->
+<section class="school-section">
+  <div class="container">
+
+    <div class="section-header center reveal" style="margin-bottom:60px">
+      <div class="eyebrow" style="justify-content:center">For School Students</div>
+      <h2 class="section-title">School <span class="r">Student</span> <span class="y">Plans</span></h2>
+      <p class="section-lead" style="margin:0 auto;text-align:center">
+        Personalised German sessions for school students — all boards (CBSE, ICSE, IB), all grades. Small batches for focused, personal learning.
+      </p>
+    </div>
+
+    <!-- Why choose for school students -->
+    <div class="school-why-row reveal">
+      <div class="school-why-item">
+        <div class="swy-icon">📚</div>
+        <div class="swy-text"><strong>All Boards Covered</strong><span>CBSE, ICSE, IB, State Board — all curriculum supported</span></div>
+      </div>
+      <div class="school-why-item">
+        <div class="swy-icon">🎯</div>
+        <div class="swy-text"><strong>Exam Focused</strong><span>Preparation aligned to school exams, board exams and term tests</span></div>
+      </div>
+      <div class="school-why-item">
+        <div class="swy-icon">👥</div>
+        <div class="swy-text"><strong>Max 2 Students</strong><span>Tiny batches ensure every child gets personal attention</span></div>
+      </div>
+      <div class="school-why-item">
+        <div class="swy-icon">💻</div>
+        <div class="swy-text"><strong>Flexible Timing</strong><span>Schedule around school hours, tuitions and activities</span></div>
+      </div>
+    </div>
+
+    <!-- 4 grade cards — detailed -->
+    <div class="school-detail-grid">
+
+      <!-- Class 1–5 -->
+      <div class="school-detail-card reveal">
+        <div class="sdc-badge">Primary</div>
+        <h3 class="sdc-class">Class 1st – 5th</h3>
+        <div class="sdc-rate">₹500<span>/hr</span></div>
+        <div class="sdc-strength">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Max 2 students per batch
+        </div>
+        <div class="sdc-divider"></div>
+        <div class="sdc-about">
+          <div class="sdc-about-title">What We Cover</div>
+          <ul>
+            <li>German alphabet &amp; pronunciation</li>
+            <li>Basic greetings &amp; introductions</li>
+            <li>Numbers, colours, shapes, animals</li>
+            <li>Days of week, months, seasons</li>
+            <li>Fun songs, stories &amp; games</li>
+            <li>Simple sentence formation</li>
+          </ul>
+        </div>
+        <div class="sdc-note">Perfect for CBSE/ICSE schools that introduce German from Class 1 or 3.</div>
+        <a href="contact.html" class="course-btn" style="margin-top:auto">
+          Enquire Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Class 6–8 -->
+      <div class="school-detail-card highlighted reveal">
+        <div class="sdc-badge" style="background:var(--black);color:var(--yellow)">Middle</div>
+        <h3 class="sdc-class">Class 6th – 8th</h3>
+        <div class="sdc-rate">₹700<span>/hr</span></div>
+        <div class="sdc-strength">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Max 2 students per batch
+        </div>
+        <div class="sdc-divider"></div>
+        <div class="sdc-about">
+          <div class="sdc-about-title">What We Cover</div>
+          <ul>
+            <li>Expanded grammar &amp; sentence structure</li>
+            <li>School and family vocabulary</li>
+            <li>Past &amp; future tense basics</li>
+            <li>Reading comprehension exercises</li>
+            <li>Writing paragraphs &amp; short essays</li>
+            <li>Board exam question format practice</li>
+          </ul>
+        </div>
+        <div class="sdc-note">Aligned to Class 6–8 CBSE German syllabus. Great for students scoring below 80% who want to improve fast.</div>
+        <a href="contact.html" class="course-btn" style="margin-top:auto;background:var(--black);color:var(--yellow);border-color:var(--black)">
+          Enquire Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Class 9–10 -->
+      <div class="school-detail-card reveal">
+        <div class="sdc-badge">Secondary</div>
+        <h3 class="sdc-class">Class 9th – 10th</h3>
+        <div class="sdc-rate">₹800<span>/hr</span></div>
+        <div class="sdc-strength">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Max 2 students per batch
+        </div>
+        <div class="sdc-divider"></div>
+        <div class="sdc-about">
+          <div class="sdc-about-title">What We Cover</div>
+          <ul>
+            <li>Full CBSE Class 9 &amp; 10 German syllabus</li>
+            <li>Board exam preparation &amp; paper pattern</li>
+            <li>Essay writing, letter writing, comprehension</li>
+            <li>Grammar: all tenses, cases, modal verbs</li>
+            <li>Speaking practice for oral exam</li>
+            <li>Previous year board paper practice</li>
+          </ul>
+        </div>
+        <div class="sdc-note">Board exam focused. Students typically score 90%+ after dedicated preparation with Deep sir.</div>
+        <a href="contact.html" class="course-btn" style="margin-top:auto">
+          Enquire Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Class 11–12 -->
+      <div class="school-detail-card reveal">
+        <div class="sdc-badge">Senior</div>
+        <h3 class="sdc-class">Class 11th – 12th</h3>
+        <div class="sdc-rate">₹1,000<span>/hr</span></div>
+        <div class="sdc-strength">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          Max 2 students per batch
+        </div>
+        <div class="sdc-divider"></div>
+        <div class="sdc-about">
+          <div class="sdc-about-title">What We Cover</div>
+          <ul>
+            <li>Class 11 &amp; 12 CBSE German full syllabus</li>
+            <li>Advanced grammar &amp; composition</li>
+            <li>Board exam strategy &amp; scoring tips</li>
+            <li>Formal letter, essay &amp; report writing</li>
+            <li>Reading unseen passages accurately</li>
+            <li>Oral exam &amp; viva preparation</li>
+          </ul>
+        </div>
+        <div class="sdc-note">Senior students aiming for 95%+ in board exams. Also helpful for students planning German as a subject in college.</div>
+        <a href="contact.html" class="course-btn" style="margin-top:auto">
+          Enquire Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bottom CTA -->
+    <div style="margin-top:50px;background:var(--black);border-radius:20px;padding:36px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px" class="reveal">
+      <div>
+        <p style="font-family:var(--font-head);font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:8px">Not sure which school plan is right for your child?</p>
+        <p style="font-size:.9rem;color:rgba(255,255,255,.5)">Book a free 30-minute consultation. We'll assess the current level and recommend the best plan.</p>
+      </div>
+      <a href="contact.html" class="btn btn-yellow" style="padding:14px 30px;white-space:nowrap">
+        📞 Free Consultation
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- <section  id="courses" class="about-wrap section">
   <div class="container">
     <div class="section-header center reveal" style="margin-bottom:48px">
       <div class="eyebrow" style="justify-content:center">What We Offer</div>
@@ -51,7 +1348,7 @@
       <div class="scard reveal"><div class="scard-head" data-ltr="K"><div class="scard-badge">Special Batch</div><div class="scard-name">German for Kids</div></div><div class="scard-body"><p>Fun, interactive German for children. Games, songs, and stories make learning enjoyable and effective.</p><div class="scard-pills"><span class="pill">Games &amp; Stories</span><span class="pill">Songs</span><span class="pill">Young Learners</span><span class="pill">Patient Teaching</span></div><a href="contact.html" class="btn btn-black">Enroll Kids</a></div></div>
     </div>
   </div>
-</section>
+</section> -->
 
 <section class="batches-wrap section">
   <div class="container">
