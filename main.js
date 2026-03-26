@@ -247,3 +247,32 @@ window.addEventListener("resize", () => {
 /* INIT */
 updateSlider();
 
+const wowCards = document.querySelectorAll('.wow-card');
+
+window.addEventListener('scroll', () => {
+  wowCards.forEach((el) => {
+    const top = el.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if(top < windowHeight - 80){
+      el.classList.add('show');
+    }
+  });
+});
+
+const wowFade = document.querySelector('.wow-fade');
+const wowZooms = document.querySelectorAll('.wow-zoom');
+
+window.addEventListener('scroll', () => {
+  const trigger = window.innerHeight - 80;
+
+  if(wowFade.getBoundingClientRect().top < trigger){
+    wowFade.classList.add('show');
+  }
+
+  wowZooms.forEach(el=>{
+    if(el.getBoundingClientRect().top < trigger){
+      el.classList.add('show');
+    }
+  });
+});
